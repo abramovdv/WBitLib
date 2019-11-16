@@ -66,11 +66,11 @@ void Wbit::syncGetRequest(bool loadIcon) {
 // sClient.setInsecure for that
 void Wbit::saveImage() {
   http.end();
-  http.begin(sClient, HOST, 443, getIconUrl(), true);
+  http.begin(sClient, HOST_STATIC, 443, getIconUrl(), true);
   int code = http.GET();
   if (code == HTTP_CODE_OK || code == HTTP_CODE_MOVED_PERMANENTLY) {
     boolean imgSaved = saver.saveIcon(lastIcon, http);
-    DEBUG_MSG("saving icon: " + Utils::boolStr(imgSaved));
+    DEBUG_MSG(("saving icon: " + Utils::boolStr(imgSaved)).c_str());
   }
   http.end();
 }

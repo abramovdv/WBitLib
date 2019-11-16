@@ -5,7 +5,7 @@ ImageSaver::ImageSaver() {}
 // you need call http.begin(url); before it
 boolean ImageSaver::saveIcon(const char *newCaption, HTTPClient &http) {
   String oldCaption = getIconCaption();
-  DEBUG_MSG(oldCaption + " =? " + newCaption);
+  DEBUG_MSG((oldCaption + " =? " + newCaption).c_str());
   if (oldCaption != newCaption) {
     saveIconCaption(newCaption);
     return saveIconFile(http);

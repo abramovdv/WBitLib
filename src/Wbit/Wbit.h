@@ -9,6 +9,7 @@
 #include "Utils.h"
 
 #define HOST "api.weatherbit.io"
+#define HOST_STATIC "weatherbit.io"
 
 struct WindData {
   float speed;
