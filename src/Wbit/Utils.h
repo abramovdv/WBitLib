@@ -11,7 +11,6 @@
 
 class Utils {
  public:
-  static void DEBUG(String text) { DEBUG_ESP_PORT.println("[OW]" + text); }
   static String boolStr(bool b) { return b ? "true" : "false"; }
 };
 

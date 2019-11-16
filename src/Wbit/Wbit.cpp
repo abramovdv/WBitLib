@@ -33,7 +33,7 @@ void Wbit::syncGetRequest(bool loadIcon) {
   http.begin(client, HOST, 80, getUrl(), false);
   lastCode = http.GET();
   if (lastCode != 200) {
-    Utils::DEBUG("error request: " + lastCode);
+    DEBUG_MSG("error request: " + lastCode);
   } else {
     deserializeJson(doc, http.getString());
     JsonObject data = doc["data"][0];
@@ -70,7 +70,7 @@ void Wbit::saveImage() {
   int code = http.GET();
   if (code == HTTP_CODE_OK || code == HTTP_CODE_MOVED_PERMANENTLY) {
     boolean imgSaved = saver.saveIcon(lastIcon, http);
-    Utils::DEBUG("saving icon: " + Utils::boolStr(imgSaved));
+    DEBUG_MSG("saving icon: " + Utils::boolStr(imgSaved));
   }
   http.end();
 }
